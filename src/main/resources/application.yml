@@ -1,0 +1,23 @@
+springit:
+  welcome-msg: Hello mr default!
+
+spring:
+  profiles:
+    active: dev
+logging:
+  level:
+    com.larkas.springit: TRACE
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+info:
+  application:
+    name: mrSpringit
+    description: lite text om var applikation
+    version: 0.0.1
