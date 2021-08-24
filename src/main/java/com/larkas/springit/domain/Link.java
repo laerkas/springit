@@ -1,7 +1,7 @@
 package com.larkas.springit.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Link extends Auditable {
 
     @Id
@@ -22,5 +26,20 @@ public class Link extends Auditable {
     private String url;
 
     @OneToMany(mappedBy = "link")
+    @ToString.Exclude
     private List<Comment> comments = new ArrayList<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Link link = (Link) o;
+
+        return Objects.equals(id, link.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1900957211;
+    }
 }
