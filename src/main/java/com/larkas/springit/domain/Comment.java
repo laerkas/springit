@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import java.util.Objects;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
