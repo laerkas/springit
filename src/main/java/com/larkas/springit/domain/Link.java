@@ -1,21 +1,13 @@
 package com.larkas.springit.domain;
 
-import lombok.*;
-import org.hibernate.Hibernate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
 public class Link extends Auditable {
 
     @Id
@@ -25,20 +17,37 @@ public class Link extends Auditable {
     private String url;
 
     @OneToMany(mappedBy = "link")
-    @ToString.Exclude
     private List<Comment> comments = new ArrayList<>();
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Link link = (Link) o;
-
-        return Objects.equals(id, link.id);
+    public Long getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return 1900957211;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }
