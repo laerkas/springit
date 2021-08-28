@@ -27,11 +27,10 @@ public class SpringitApplication {
             log.error("error message");
             log.warn("warning message");
             log.info("info message");
-            log.debug("debuig message");
+            log.debug("debug message");
             log.trace("trace message");
         };
     }
-
 
 //    @Bean
 //    @Profile("production")
