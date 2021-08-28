@@ -27,7 +27,7 @@ public class SpringitApplication {
         log.info("testar loggen i main");
     }
 
-    @Bean
+    //@Bean
     CommandLineRunner runner(LinkRepository linkRepository, CommentRepository commentRepository) {
         return args -> {
             Link link = new Link("Getting started with sp boot 2", "https://gd.se/");
