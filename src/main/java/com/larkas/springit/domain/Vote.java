@@ -12,6 +12,9 @@ public class Vote {
     private Long id;
     private int vote;
 
+    public Vote() {
+    }
+
     public Long getId() {
         return id;
     }
